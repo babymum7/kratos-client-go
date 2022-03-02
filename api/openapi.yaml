@@ -796,6 +796,18 @@ paths:
         schema:
           type: string
         style: form
+      - description: |-
+          HTTP Cookies
+
+          When using the SDK on the server side you must include the HTTP Cookie Header
+          originally sent to your HTTP handler here.
+        explode: false
+        in: header
+        name: cookie
+        required: false
+        schema:
+          type: string
+        style: simple
       responses:
         "200":
           content:
@@ -1192,6 +1204,18 @@ paths:
         schema:
           type: string
         style: form
+      - description: |-
+          HTTP Cookies
+
+          When using the SDK on the server side you must include the HTTP Cookie Header
+          originally sent to your HTTP handler here.
+        explode: false
+        in: header
+        name: cookie
+        required: false
+        schema:
+          type: string
+        style: simple
       responses:
         "200":
           content:
@@ -1460,6 +1484,18 @@ paths:
         schema:
           type: string
         style: form
+      - description: |-
+          HTTP Cookies
+
+          When using the SDK on the server side you must include the HTTP Cookie Header
+          originally sent to your HTTP handler here.
+        explode: false
+        in: header
+        name: cookie
+        required: false
+        schema:
+          type: string
+        style: simple
       responses:
         "200":
           content:
@@ -1783,6 +1819,18 @@ paths:
         schema:
           type: string
         style: form
+      - description: |-
+          HTTP Cookies
+
+          When using the SDK on the server side you must include the HTTP Cookie Header
+          originally sent to your HTTP handler here.
+        explode: false
+        in: header
+        name: cookie
+        required: false
+        schema:
+          type: string
+        style: simple
       responses:
         "200":
           content:
@@ -2060,6 +2108,18 @@ paths:
         schema:
           type: string
         style: form
+      - description: |-
+          HTTP Cookies
+
+          When using the SDK on the server side you must include the HTTP Cookie Header
+          originally sent to your HTTP handler here.
+        explode: false
+        in: header
+        name: cookie
+        required: false
+        schema:
+          type: string
+        style: simple
       responses:
         "200":
           content:
