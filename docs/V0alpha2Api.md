@@ -1860,7 +1860,7 @@ No authorization required
 
 ## SubmitSelfServiceLoginFlow
 
-> SuccessfulSelfServiceLoginWithoutBrowser SubmitSelfServiceLoginFlow(ctx).Flow(flow).XSessionToken(xSessionToken).SubmitSelfServiceLoginFlowBody(submitSelfServiceLoginFlowBody).Execute()
+> SuccessfulSelfServiceLoginBrowser SubmitSelfServiceLoginFlow(ctx).Flow(flow).XSessionToken(xSessionToken).Cookie(cookie).SubmitSelfServiceLoginFlowBody(submitSelfServiceLoginFlowBody).Execute()
 
 Submit a Login Flow
 
@@ -1881,16 +1881,17 @@ import (
 func main() {
     flow := "flow_example" // string | The Login Flow ID  The value for this parameter comes from `flow` URL Query parameter sent to your application (e.g. `/login?flow=abcde`).
     xSessionToken := "xSessionToken_example" // string | The Session Token of the Identity performing the settings flow. (optional)
+    cookie := "cookie_example" // string | HTTP Cookies  When using the SDK on the server side you must include the HTTP Cookie Header originally sent to your HTTP handler here. You only need to do this for browser- based flows. (optional)
     submitSelfServiceLoginFlowBody := openapiclient.submitSelfServiceLoginFlowBody{SubmitSelfServiceLoginFlowWithOidcMethodBody: openapiclient.NewSubmitSelfServiceLoginFlowWithOidcMethodBody("Method_example", "Provider_example")} // SubmitSelfServiceLoginFlowBody |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha2Api.SubmitSelfServiceLoginFlow(context.Background()).Flow(flow).XSessionToken(xSessionToken).SubmitSelfServiceLoginFlowBody(submitSelfServiceLoginFlowBody).Execute()
+    resp, r, err := apiClient.V0alpha2Api.SubmitSelfServiceLoginFlow(context.Background()).Flow(flow).XSessionToken(xSessionToken).Cookie(cookie).SubmitSelfServiceLoginFlowBody(submitSelfServiceLoginFlowBody).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.SubmitSelfServiceLoginFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `SubmitSelfServiceLoginFlow`: SuccessfulSelfServiceLoginWithoutBrowser
+    // response from `SubmitSelfServiceLoginFlow`: SuccessfulSelfServiceLoginBrowser
     fmt.Fprintf(os.Stdout, "Response from `V0alpha2Api.SubmitSelfServiceLoginFlow`: %v\n", resp)
 }
 ```
@@ -1908,11 +1909,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **flow** | **string** | The Login Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/login?flow&#x3D;abcde&#x60;). | 
  **xSessionToken** | **string** | The Session Token of the Identity performing the settings flow. | 
+ **cookie** | **string** | HTTP Cookies  When using the SDK on the server side you must include the HTTP Cookie Header originally sent to your HTTP handler here. You only need to do this for browser- based flows. | 
  **submitSelfServiceLoginFlowBody** | [**SubmitSelfServiceLoginFlowBody**](SubmitSelfServiceLoginFlowBody.md) |  | 
 
 ### Return type
 
-[**SuccessfulSelfServiceLoginWithoutBrowser**](SuccessfulSelfServiceLoginWithoutBrowser.md)
+[**SuccessfulSelfServiceLoginBrowser**](SuccessfulSelfServiceLoginBrowser.md)
 
 ### Authorization
 
@@ -2130,7 +2132,7 @@ No authorization required
 
 ## SubmitSelfServiceRegistrationFlow
 
-> SuccessfulSelfServiceRegistrationWithoutBrowser SubmitSelfServiceRegistrationFlow(ctx).Flow(flow).SubmitSelfServiceRegistrationFlowBody(submitSelfServiceRegistrationFlowBody).Execute()
+> SuccessfulSelfServiceRegistrationBrowser SubmitSelfServiceRegistrationFlow(ctx).Flow(flow).Cookie(cookie).SubmitSelfServiceRegistrationFlowBody(submitSelfServiceRegistrationFlowBody).Execute()
 
 Submit a Registration Flow
 
@@ -2150,16 +2152,17 @@ import (
 
 func main() {
     flow := "flow_example" // string | The Registration Flow ID  The value for this parameter comes from `flow` URL Query parameter sent to your application (e.g. `/registration?flow=abcde`).
+    cookie := "cookie_example" // string | HTTP Cookies  When using the SDK on the server side you must include the HTTP Cookie Header originally sent to your HTTP handler here. You only need to do this for browser- based flows. (optional)
     submitSelfServiceRegistrationFlowBody := openapiclient.submitSelfServiceRegistrationFlowBody{SubmitSelfServiceRegistrationFlowWithOidcMethodBody: openapiclient.NewSubmitSelfServiceRegistrationFlowWithOidcMethodBody("Method_example", "Provider_example")} // SubmitSelfServiceRegistrationFlowBody |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha2Api.SubmitSelfServiceRegistrationFlow(context.Background()).Flow(flow).SubmitSelfServiceRegistrationFlowBody(submitSelfServiceRegistrationFlowBody).Execute()
+    resp, r, err := apiClient.V0alpha2Api.SubmitSelfServiceRegistrationFlow(context.Background()).Flow(flow).Cookie(cookie).SubmitSelfServiceRegistrationFlowBody(submitSelfServiceRegistrationFlowBody).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.SubmitSelfServiceRegistrationFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `SubmitSelfServiceRegistrationFlow`: SuccessfulSelfServiceRegistrationWithoutBrowser
+    // response from `SubmitSelfServiceRegistrationFlow`: SuccessfulSelfServiceRegistrationBrowser
     fmt.Fprintf(os.Stdout, "Response from `V0alpha2Api.SubmitSelfServiceRegistrationFlow`: %v\n", resp)
 }
 ```
@@ -2176,11 +2179,12 @@ Other parameters are passed through a pointer to a apiSubmitSelfServiceRegistrat
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **flow** | **string** | The Registration Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/registration?flow&#x3D;abcde&#x60;). | 
+ **cookie** | **string** | HTTP Cookies  When using the SDK on the server side you must include the HTTP Cookie Header originally sent to your HTTP handler here. You only need to do this for browser- based flows. | 
  **submitSelfServiceRegistrationFlowBody** | [**SubmitSelfServiceRegistrationFlowBody**](SubmitSelfServiceRegistrationFlowBody.md) |  | 
 
 ### Return type
 
-[**SuccessfulSelfServiceRegistrationWithoutBrowser**](SuccessfulSelfServiceRegistrationWithoutBrowser.md)
+[**SuccessfulSelfServiceRegistrationBrowser**](SuccessfulSelfServiceRegistrationBrowser.md)
 
 ### Authorization
 
@@ -2198,7 +2202,7 @@ No authorization required
 
 ## SubmitSelfServiceSettingsFlow
 
-> SelfServiceSettingsFlow SubmitSelfServiceSettingsFlow(ctx).Flow(flow).XSessionToken(xSessionToken).SubmitSelfServiceSettingsFlowBody(submitSelfServiceSettingsFlowBody).Execute()
+> SelfServiceSettingsFlow SubmitSelfServiceSettingsFlow(ctx).Flow(flow).XSessionToken(xSessionToken).Cookie(cookie).SubmitSelfServiceSettingsFlowBody(submitSelfServiceSettingsFlowBody).Execute()
 
 Complete Settings Flow
 
@@ -2219,11 +2223,12 @@ import (
 func main() {
     flow := "flow_example" // string | The Settings Flow ID  The value for this parameter comes from `flow` URL Query parameter sent to your application (e.g. `/settings?flow=abcde`).
     xSessionToken := "xSessionToken_example" // string | The Session Token of the Identity performing the settings flow. (optional)
+    cookie := "cookie_example" // string | HTTP Cookies  When using the SDK on the server side you must include the HTTP Cookie Header originally sent to your HTTP handler here. You only need to do this for browser- based flows. (optional)
     submitSelfServiceSettingsFlowBody := openapiclient.submitSelfServiceSettingsFlowBody{SubmitSelfServiceSettingsFlowWithOidcMethodBody: openapiclient.NewSubmitSelfServiceSettingsFlowWithOidcMethodBody("Method_example")} // SubmitSelfServiceSettingsFlowBody |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha2Api.SubmitSelfServiceSettingsFlow(context.Background()).Flow(flow).XSessionToken(xSessionToken).SubmitSelfServiceSettingsFlowBody(submitSelfServiceSettingsFlowBody).Execute()
+    resp, r, err := apiClient.V0alpha2Api.SubmitSelfServiceSettingsFlow(context.Background()).Flow(flow).XSessionToken(xSessionToken).Cookie(cookie).SubmitSelfServiceSettingsFlowBody(submitSelfServiceSettingsFlowBody).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.SubmitSelfServiceSettingsFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2246,6 +2251,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **flow** | **string** | The Settings Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/settings?flow&#x3D;abcde&#x60;). | 
  **xSessionToken** | **string** | The Session Token of the Identity performing the settings flow. | 
+ **cookie** | **string** | HTTP Cookies  When using the SDK on the server side you must include the HTTP Cookie Header originally sent to your HTTP handler here. You only need to do this for browser- based flows. | 
  **submitSelfServiceSettingsFlowBody** | [**SubmitSelfServiceSettingsFlowBody**](SubmitSelfServiceSettingsFlowBody.md) |  | 
 
 ### Return type

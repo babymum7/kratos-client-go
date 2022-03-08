@@ -615,6 +615,19 @@ paths:
         schema:
           type: string
         style: simple
+      - description: |-
+          HTTP Cookies
+
+          When using the SDK on the server side you must include the HTTP Cookie Header
+          originally sent to your HTTP handler here. You only need to do this for browser-
+          based flows.
+        explode: false
+        in: header
+        name: cookie
+        required: false
+        schema:
+          type: string
+        style: simple
       requestBody:
         content:
           application/json:
@@ -629,8 +642,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/successfulSelfServiceLoginWithoutBrowser'
-          description: successfulSelfServiceLoginWithoutBrowser
+                $ref: '#/components/schemas/successfulSelfServiceLoginBrowser'
+          description: successfulSelfServiceLoginBrowser
         "302":
           description: Empty responses are sent when, for example, resources are deleted.
             The HTTP status code for empty responses is typically 201.
@@ -1361,6 +1374,19 @@ paths:
         schema:
           type: string
         style: form
+      - description: |-
+          HTTP Cookies
+
+          When using the SDK on the server side you must include the HTTP Cookie Header
+          originally sent to your HTTP handler here. You only need to do this for browser-
+          based flows.
+        explode: false
+        in: header
+        name: cookie
+        required: false
+        schema:
+          type: string
+        style: simple
       requestBody:
         content:
           application/json:
@@ -1375,8 +1401,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/successfulSelfServiceRegistrationWithoutBrowser'
-          description: successfulSelfServiceRegistrationWithoutBrowser
+                $ref: '#/components/schemas/successfulSelfServiceRegistrationBrowser'
+          description: successfulSelfServiceRegistrationBrowser
         "302":
           description: Empty responses are sent when, for example, resources are deleted.
             The HTTP status code for empty responses is typically 201.
@@ -1665,6 +1691,19 @@ paths:
         explode: false
         in: header
         name: X-Session-Token
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: |-
+          HTTP Cookies
+
+          When using the SDK on the server side you must include the HTTP Cookie Header
+          originally sent to your HTTP handler here. You only need to do this for browser-
+          based flows.
+        explode: false
+        in: header
+        name: cookie
         required: false
         schema:
           type: string
@@ -4218,7 +4257,7 @@ components:
       - email
       - method
       type: object
-    successfulSelfServiceLoginWithoutBrowser:
+    successfulSelfServiceLoginBrowser:
       description: The Response for Login Flows via API
       example:
         session_token: session_token
@@ -4294,7 +4333,7 @@ components:
       required:
       - session
       type: object
-    successfulSelfServiceRegistrationWithoutBrowser:
+    successfulSelfServiceRegistrationBrowser:
       description: The Response for Registration Flows via API
       example:
         session_token: session_token

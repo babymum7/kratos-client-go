@@ -4090,6 +4090,7 @@ type ApiSubmitSelfServiceLoginFlowRequest struct {
 	ApiService *V0alpha2ApiService
 	flow *string
 	xSessionToken *string
+	cookie *string
 	submitSelfServiceLoginFlowBody *SubmitSelfServiceLoginFlowBody
 }
 
@@ -4103,12 +4104,17 @@ func (r ApiSubmitSelfServiceLoginFlowRequest) XSessionToken(xSessionToken string
 	r.xSessionToken = &xSessionToken
 	return r
 }
+// HTTP Cookies  When using the SDK on the server side you must include the HTTP Cookie Header originally sent to your HTTP handler here. You only need to do this for browser- based flows.
+func (r ApiSubmitSelfServiceLoginFlowRequest) Cookie(cookie string) ApiSubmitSelfServiceLoginFlowRequest {
+	r.cookie = &cookie
+	return r
+}
 func (r ApiSubmitSelfServiceLoginFlowRequest) SubmitSelfServiceLoginFlowBody(submitSelfServiceLoginFlowBody SubmitSelfServiceLoginFlowBody) ApiSubmitSelfServiceLoginFlowRequest {
 	r.submitSelfServiceLoginFlowBody = &submitSelfServiceLoginFlowBody
 	return r
 }
 
-func (r ApiSubmitSelfServiceLoginFlowRequest) Execute() (*SuccessfulSelfServiceLoginWithoutBrowser, *http.Response, error) {
+func (r ApiSubmitSelfServiceLoginFlowRequest) Execute() (*SuccessfulSelfServiceLoginBrowser, *http.Response, error) {
 	return r.ApiService.SubmitSelfServiceLoginFlowExecute(r)
 }
 
@@ -4160,13 +4166,13 @@ func (a *V0alpha2ApiService) SubmitSelfServiceLoginFlow(ctx context.Context) Api
 }
 
 // Execute executes the request
-//  @return SuccessfulSelfServiceLoginWithoutBrowser
-func (a *V0alpha2ApiService) SubmitSelfServiceLoginFlowExecute(r ApiSubmitSelfServiceLoginFlowRequest) (*SuccessfulSelfServiceLoginWithoutBrowser, *http.Response, error) {
+//  @return SuccessfulSelfServiceLoginBrowser
+func (a *V0alpha2ApiService) SubmitSelfServiceLoginFlowExecute(r ApiSubmitSelfServiceLoginFlowRequest) (*SuccessfulSelfServiceLoginBrowser, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SuccessfulSelfServiceLoginWithoutBrowser
+		localVarReturnValue  *SuccessfulSelfServiceLoginBrowser
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "V0alpha2ApiService.SubmitSelfServiceLoginFlow")
@@ -4203,6 +4209,9 @@ func (a *V0alpha2ApiService) SubmitSelfServiceLoginFlowExecute(r ApiSubmitSelfSe
 	}
 	if r.xSessionToken != nil {
 		localVarHeaderParams["X-Session-Token"] = parameterToString(*r.xSessionToken, "")
+	}
+	if r.cookie != nil {
+		localVarHeaderParams["cookie"] = parameterToString(*r.cookie, "")
 	}
 	// body params
 	localVarPostBody = r.submitSelfServiceLoginFlowBody
@@ -4689,6 +4698,7 @@ type ApiSubmitSelfServiceRegistrationFlowRequest struct {
 	ctx context.Context
 	ApiService *V0alpha2ApiService
 	flow *string
+	cookie *string
 	submitSelfServiceRegistrationFlowBody *SubmitSelfServiceRegistrationFlowBody
 }
 
@@ -4697,12 +4707,17 @@ func (r ApiSubmitSelfServiceRegistrationFlowRequest) Flow(flow string) ApiSubmit
 	r.flow = &flow
 	return r
 }
+// HTTP Cookies  When using the SDK on the server side you must include the HTTP Cookie Header originally sent to your HTTP handler here. You only need to do this for browser- based flows.
+func (r ApiSubmitSelfServiceRegistrationFlowRequest) Cookie(cookie string) ApiSubmitSelfServiceRegistrationFlowRequest {
+	r.cookie = &cookie
+	return r
+}
 func (r ApiSubmitSelfServiceRegistrationFlowRequest) SubmitSelfServiceRegistrationFlowBody(submitSelfServiceRegistrationFlowBody SubmitSelfServiceRegistrationFlowBody) ApiSubmitSelfServiceRegistrationFlowRequest {
 	r.submitSelfServiceRegistrationFlowBody = &submitSelfServiceRegistrationFlowBody
 	return r
 }
 
-func (r ApiSubmitSelfServiceRegistrationFlowRequest) Execute() (*SuccessfulSelfServiceRegistrationWithoutBrowser, *http.Response, error) {
+func (r ApiSubmitSelfServiceRegistrationFlowRequest) Execute() (*SuccessfulSelfServiceRegistrationBrowser, *http.Response, error) {
 	return r.ApiService.SubmitSelfServiceRegistrationFlowExecute(r)
 }
 
@@ -4749,13 +4764,13 @@ func (a *V0alpha2ApiService) SubmitSelfServiceRegistrationFlow(ctx context.Conte
 }
 
 // Execute executes the request
-//  @return SuccessfulSelfServiceRegistrationWithoutBrowser
-func (a *V0alpha2ApiService) SubmitSelfServiceRegistrationFlowExecute(r ApiSubmitSelfServiceRegistrationFlowRequest) (*SuccessfulSelfServiceRegistrationWithoutBrowser, *http.Response, error) {
+//  @return SuccessfulSelfServiceRegistrationBrowser
+func (a *V0alpha2ApiService) SubmitSelfServiceRegistrationFlowExecute(r ApiSubmitSelfServiceRegistrationFlowRequest) (*SuccessfulSelfServiceRegistrationBrowser, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SuccessfulSelfServiceRegistrationWithoutBrowser
+		localVarReturnValue  *SuccessfulSelfServiceRegistrationBrowser
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "V0alpha2ApiService.SubmitSelfServiceRegistrationFlow")
@@ -4789,6 +4804,9 @@ func (a *V0alpha2ApiService) SubmitSelfServiceRegistrationFlowExecute(r ApiSubmi
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.cookie != nil {
+		localVarHeaderParams["cookie"] = parameterToString(*r.cookie, "")
 	}
 	// body params
 	localVarPostBody = r.submitSelfServiceRegistrationFlowBody
@@ -4863,6 +4881,7 @@ type ApiSubmitSelfServiceSettingsFlowRequest struct {
 	ApiService *V0alpha2ApiService
 	flow *string
 	xSessionToken *string
+	cookie *string
 	submitSelfServiceSettingsFlowBody *SubmitSelfServiceSettingsFlowBody
 }
 
@@ -4874,6 +4893,11 @@ func (r ApiSubmitSelfServiceSettingsFlowRequest) Flow(flow string) ApiSubmitSelf
 // The Session Token of the Identity performing the settings flow.
 func (r ApiSubmitSelfServiceSettingsFlowRequest) XSessionToken(xSessionToken string) ApiSubmitSelfServiceSettingsFlowRequest {
 	r.xSessionToken = &xSessionToken
+	return r
+}
+// HTTP Cookies  When using the SDK on the server side you must include the HTTP Cookie Header originally sent to your HTTP handler here. You only need to do this for browser- based flows.
+func (r ApiSubmitSelfServiceSettingsFlowRequest) Cookie(cookie string) ApiSubmitSelfServiceSettingsFlowRequest {
+	r.cookie = &cookie
 	return r
 }
 func (r ApiSubmitSelfServiceSettingsFlowRequest) SubmitSelfServiceSettingsFlowBody(submitSelfServiceSettingsFlowBody SubmitSelfServiceSettingsFlowBody) ApiSubmitSelfServiceSettingsFlowRequest {
@@ -4986,6 +5010,9 @@ func (a *V0alpha2ApiService) SubmitSelfServiceSettingsFlowExecute(r ApiSubmitSel
 	}
 	if r.xSessionToken != nil {
 		localVarHeaderParams["X-Session-Token"] = parameterToString(*r.xSessionToken, "")
+	}
+	if r.cookie != nil {
+		localVarHeaderParams["cookie"] = parameterToString(*r.cookie, "")
 	}
 	// body params
 	localVarPostBody = r.submitSelfServiceSettingsFlowBody
