@@ -3,7 +3,7 @@ Ory Kratos API
 
 Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
 
-API version: v0.8.2-alpha.1
+API version: latest
 Contact: hi@ory.sh
 */
 
@@ -24,6 +24,8 @@ const (
 	IDENTITYCREDENTIALSTYPE_PASSWORD IdentityCredentialsType = "password"
 	IDENTITYCREDENTIALSTYPE_TOTP IdentityCredentialsType = "totp"
 	IDENTITYCREDENTIALSTYPE_OIDC IdentityCredentialsType = "oidc"
+	IDENTITYCREDENTIALSTYPE_WEBAUTHN IdentityCredentialsType = "webauthn"
+	IDENTITYCREDENTIALSTYPE_LOOKUP_SECRET IdentityCredentialsType = "lookup_secret"
 )
 
 // All allowed values of IdentityCredentialsType enum
@@ -31,6 +33,8 @@ var AllowedIdentityCredentialsTypeEnumValues = []IdentityCredentialsType{
 	"password",
 	"totp",
 	"oidc",
+	"webauthn",
+	"lookup_secret",
 }
 
 func (v *IdentityCredentialsType) UnmarshalJSON(src []byte) error {
