@@ -2652,6 +2652,7 @@ type ApiInitializeSelfServiceLoginFlowForBrowsersRequest struct {
 	refresh *bool
 	aal *string
 	returnTo *string
+	cookie *string
 }
 
 // Refresh a login session  If set to true, this will refresh an existing login session by asking the user to sign in again. This will reset the authenticated_at time of the session.
@@ -2667,6 +2668,11 @@ func (r ApiInitializeSelfServiceLoginFlowForBrowsersRequest) Aal(aal string) Api
 // The URL to return the browser to after the flow was completed.
 func (r ApiInitializeSelfServiceLoginFlowForBrowsersRequest) ReturnTo(returnTo string) ApiInitializeSelfServiceLoginFlowForBrowsersRequest {
 	r.returnTo = &returnTo
+	return r
+}
+// HTTP Cookies  If you call this endpoint from a backend, please include the original Cookie header in the request.
+func (r ApiInitializeSelfServiceLoginFlowForBrowsersRequest) Cookie(cookie string) ApiInitializeSelfServiceLoginFlowForBrowsersRequest {
+	r.cookie = &cookie
 	return r
 }
 
@@ -2753,6 +2759,9 @@ func (a *V0alpha2ApiService) InitializeSelfServiceLoginFlowForBrowsersExecute(r 
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.cookie != nil {
+		localVarHeaderParams["cookie"] = parameterToString(*r.cookie, "")
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -2979,11 +2988,17 @@ type ApiInitializeSelfServiceRecoveryFlowForBrowsersRequest struct {
 	ctx context.Context
 	ApiService *V0alpha2ApiService
 	returnTo *string
+	cookie *string
 }
 
 // The URL to return the browser to after the flow was completed.
 func (r ApiInitializeSelfServiceRecoveryFlowForBrowsersRequest) ReturnTo(returnTo string) ApiInitializeSelfServiceRecoveryFlowForBrowsersRequest {
 	r.returnTo = &returnTo
+	return r
+}
+// HTTP Cookies  If you call this endpoint from a backend, please include the original Cookie header in the request.
+func (r ApiInitializeSelfServiceRecoveryFlowForBrowsersRequest) Cookie(cookie string) ApiInitializeSelfServiceRecoveryFlowForBrowsersRequest {
+	r.cookie = &cookie
 	return r
 }
 
@@ -3055,6 +3070,9 @@ func (a *V0alpha2ApiService) InitializeSelfServiceRecoveryFlowForBrowsersExecute
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.cookie != nil {
+		localVarHeaderParams["cookie"] = parameterToString(*r.cookie, "")
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -3248,11 +3266,17 @@ type ApiInitializeSelfServiceRegistrationFlowForBrowsersRequest struct {
 	ctx context.Context
 	ApiService *V0alpha2ApiService
 	returnTo *string
+	cookie *string
 }
 
 // The URL to return the browser to after the flow was completed.
 func (r ApiInitializeSelfServiceRegistrationFlowForBrowsersRequest) ReturnTo(returnTo string) ApiInitializeSelfServiceRegistrationFlowForBrowsersRequest {
 	r.returnTo = &returnTo
+	return r
+}
+// HTTP Cookies  If you call this endpoint from a backend, please include the original Cookie header in the request.
+func (r ApiInitializeSelfServiceRegistrationFlowForBrowsersRequest) Cookie(cookie string) ApiInitializeSelfServiceRegistrationFlowForBrowsersRequest {
+	r.cookie = &cookie
 	return r
 }
 
@@ -3339,6 +3363,9 @@ func (a *V0alpha2ApiService) InitializeSelfServiceRegistrationFlowForBrowsersExe
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.cookie != nil {
+		localVarHeaderParams["cookie"] = parameterToString(*r.cookie, "")
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -3527,11 +3554,17 @@ type ApiInitializeSelfServiceSettingsFlowForBrowsersRequest struct {
 	ctx context.Context
 	ApiService *V0alpha2ApiService
 	returnTo *string
+	cookie *string
 }
 
 // The URL to return the browser to after the flow was completed.
 func (r ApiInitializeSelfServiceSettingsFlowForBrowsersRequest) ReturnTo(returnTo string) ApiInitializeSelfServiceSettingsFlowForBrowsersRequest {
 	r.returnTo = &returnTo
+	return r
+}
+// HTTP Cookies  If you call this endpoint from a backend, please include the original Cookie header in the request.
+func (r ApiInitializeSelfServiceSettingsFlowForBrowsersRequest) Cookie(cookie string) ApiInitializeSelfServiceSettingsFlowForBrowsersRequest {
+	r.cookie = &cookie
 	return r
 }
 
@@ -3619,6 +3652,9 @@ func (a *V0alpha2ApiService) InitializeSelfServiceSettingsFlowForBrowsersExecute
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.cookie != nil {
+		localVarHeaderParams["cookie"] = parameterToString(*r.cookie, "")
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -3849,11 +3885,17 @@ type ApiInitializeSelfServiceVerificationFlowForBrowsersRequest struct {
 	ctx context.Context
 	ApiService *V0alpha2ApiService
 	returnTo *string
+	cookie *string
 }
 
 // The URL to return the browser to after the flow was completed.
 func (r ApiInitializeSelfServiceVerificationFlowForBrowsersRequest) ReturnTo(returnTo string) ApiInitializeSelfServiceVerificationFlowForBrowsersRequest {
 	r.returnTo = &returnTo
+	return r
+}
+// HTTP Cookies  If you call this endpoint from a backend, please include the original Cookie header in the request.
+func (r ApiInitializeSelfServiceVerificationFlowForBrowsersRequest) Cookie(cookie string) ApiInitializeSelfServiceVerificationFlowForBrowsersRequest {
+	r.cookie = &cookie
 	return r
 }
 
@@ -3923,6 +3965,9 @@ func (a *V0alpha2ApiService) InitializeSelfServiceVerificationFlowForBrowsersExe
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.cookie != nil {
+		localVarHeaderParams["cookie"] = parameterToString(*r.cookie, "")
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {

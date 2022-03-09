@@ -2998,6 +2998,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "description": "HTTP Cookies\n\nIf you call this endpoint from a backend, please include the\noriginal Cookie header in the request.",
+            "in": "header",
+            "name": "cookie",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -3393,6 +3401,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "description": "HTTP Cookies\n\nIf you call this endpoint from a backend, please include the\noriginal Cookie header in the request.",
+            "in": "header",
+            "name": "cookie",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -3639,6 +3655,14 @@
             "description": "The URL to return the browser to after the flow was completed.",
             "in": "query",
             "name": "return_to",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "HTTP Cookies\n\nIf you call this endpoint from a backend, please include the\noriginal Cookie header in the request.",
+            "in": "header",
+            "name": "cookie",
             "schema": {
               "type": "string"
             }
@@ -3934,6 +3958,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "description": "HTTP Cookies\n\nIf you call this endpoint from a backend, please include the\noriginal Cookie header in the request.",
+            "in": "header",
+            "name": "cookie",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -4226,6 +4258,14 @@
             "description": "The URL to return the browser to after the flow was completed.",
             "in": "query",
             "name": "return_to",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "HTTP Cookies\n\nIf you call this endpoint from a backend, please include the\noriginal Cookie header in the request.",
+            "in": "header",
+            "name": "cookie",
             "schema": {
               "type": "string"
             }
